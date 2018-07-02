@@ -1,0 +1,175 @@
+body {
+  font-family: 'Nunito';
+  border: 0;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 4px;
+}
+
+.wrapper {
+  background-image: url('./assets/us-desktop.jpg');
+  background-size: cover;
+  background-position: 22% 0;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  height: 100%;
+}
+
+.ourNames {
+  font-family: 'Merriweather';
+  font-size: 5.5rem;
+
+  text-align: center;
+  color: #223e2b;
+}
+
+.ourNames .amper {
+  font-size: 1.2em;
+}
+
+.enter {
+  margin: 0 auto;
+
+  max-width: 500px;
+  height: 100px;
+}
+
+.enter-btn {
+  position: relative;
+  top: 90%;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 3rem;
+
+  background-color: #112646;
+  color: white;
+  
+  border: 0;
+  border-radius: 5px;
+  
+  padding-right: 30%;
+}
+
+.enter-btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  
+  height: 100%;
+  width: 30%;
+  
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+  background-color: white;
+}
+
+.enter-btn-icon img {
+  width: 65px;
+  height: 65px;
+}
+
+/* Extra-Wide Mode */
+@media (min-width: 160vh) {
+  .ourNames {
+    font-size: 4.5rem;
+  }
+
+  .enter {
+    position: fixed;
+    bottom: 30%;
+    right: 3%;
+    width: 50%;
+    max-width: 425px;
+  }
+
+  .enter-btn {
+    font-size: 2.75rem;
+    width: 100%;
+  }
+}
+
+/* Extra-Wide Small Mode */
+@media (min-width: 160vh) and (max-width: 736px) {
+  .ourNames {
+    font-size: 2.5rem;
+  }
+
+  .enter {
+    position: fixed;
+    bottom: 30%;
+    right: 2%;
+    width: 50%;
+    max-width: 265px;
+  }
+
+  .enter-btn {
+    font-size: 1.75rem;
+    width: 100%;
+  }
+}
+
+/* Extra-Narrow Small */
+@media (max-width: 60vh) and (max-width: 414px) {  
+  .wrapper {
+    background-image: url('./assets/us-mobile.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+  }
+
+  .info {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #b5d8c0;
+  }
+
+  .ourNames {
+    font-family: 'Merriweather';
+    font-size: 55px;
+    text-align: right;
+    margin-right: 1%;
+  }
+
+  .ourNames .amper {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: -15px;
+  }
+
+  .enter {
+    position: fixed;
+    bottom: 80px;
+    width: 100%;
+  }
+
+  .enter-btn {
+    width: 100%;
+    height: 80px;
+    font-size: 2rem;
+    background-color: #112646;
+    color: white;
+    border: 0;
+    border-radius: 0;
+    bottom: 0;
+    top: 100%;
+  }
+
+  .enter-btn-icon {
+    border-radius: 0;
+  }
+
+  .enter-btn-icon img {
+    width: 60px;
+    height: 60px;
+  }
+}
