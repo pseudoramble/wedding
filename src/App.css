@@ -120,7 +120,7 @@ h1, h2, h3 {
 }
 
 /* Extra-Narrow Small */
-@media (max-width: 60vh) and (max-width: 414px) {  
+@media (max-width: 70vh) and (max-width: 414px) {  
   .wrapper {
     background-image: url('./assets/us-mobile-resized.jpg');
     background-repeat: no-repeat;
