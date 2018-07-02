@@ -22,6 +22,8 @@ h1, h2, h3 {
 .ourNames {
   font-family: 'Merriweather';
   font-size: 5.5rem;
+  font-style: italic;
+  font-weight: 900;
 
   text-align: center;
   color: #223e2b;
