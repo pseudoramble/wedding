@@ -36,7 +36,7 @@ h1, h2, h3 {
 .enter {
   margin: 0 auto;
 
-  max-width: 500px;
+  max-width: 550px;
   height: 100px;
 }
 
@@ -92,7 +92,7 @@ h1, h2, h3 {
     bottom: 30%;
     right: 3%;
     width: 50%;
-    max-width: 425px;
+    max-width: 475px;
   }
 
   .enter-btn {
@@ -122,7 +122,7 @@ h1, h2, h3 {
 }
 
 /* Extra-Narrow Small */
-@media (max-width: 70vh) and (max-width: 414px) {  
+@media (max-width: 80vh) and (max-width: 599px) {  
   .wrapper {
     background-image: url('./assets/us-mobile-resized.jpg');
     background-repeat: no-repeat;
@@ -152,6 +152,7 @@ h1, h2, h3 {
     position: fixed;
     bottom: 80px;
     width: 100%;
+    max-width: 600px
   }
 
   .enter-btn {
