@@ -1,21 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import buttonIcon from './assets/vt.png';
+import { Intro, Landing } from './pages';
 
-const App = (props) => (
-  <div className="wrapper">
-    <div className="ourNames">
-      <span>Kerry</span> <span className="amper">&</span> <span>Doug</span>
-    </div>
-    <div className="enter">
-      <button className="enter-btn" onClick={() => console.info('click')}>
-        <span>Coming Soon!</span>
-        <span className="enter-btn-icon">
-          <img src={buttonIcon} />
-        </span>
-      </button>
-    </div>
-  </div>
+import './App.css';
+
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/wedding" component={Intro} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default App;

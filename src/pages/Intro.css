@@ -1,0 +1,165 @@
+body {
+  background-color: #eae8e9;
+}
+
+.maxWidth {
+  width: "100%";
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  /* Hide any sign of the menu items by default */
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.navMenu {
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 5px;
+  background-color: #112646;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.navMenuItem {
+  color: white;
+  background-color: #112646;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.navMenuOpened {
+  max-height: 500px;
+  overflow: auto;
+}
+
+.link {
+  max-width: 300px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: white;
+  margin: 0 5% 0 2%;
+}
+
+.backLink {
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5% 0 10% 0;
+}
+
+.ourNames {
+  font-family: 'Vollkorn', serif;
+  font-size: 2.25rem;
+  font-style: italic;
+  font-weight: 900;
+
+  text-align: center;
+  color: #223e2b;
+}
+
+.firstName {
+  position: relative;
+  top: -35px;
+  left: 25px;
+}
+
+.lastName {
+  position: relative;
+  bottom: -35px;
+  right: 25px;
+}
+
+.ourNames .amper {
+  margin: 0 5%;
+}
+
+.content {
+  font-size: 1.5rem;
+  margin: 1% 5%;
+}
+
+.icon {
+  width: 50px;
+}
+
+@media (min-width: 80vh) {
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .navBar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    height: auto;
+    overflow: visible;
+    background-color: #112646;
+  }
+
+  .navMenu {
+    cursor: initial;
+    font-size: 2.25rem;
+    padding: 5px 0 0 70px;
+    background-color: #112646;
+    color: white;
+  
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+  }
+
+  .navMenuItem {
+    width: 300px;
+    text-align: center;
+  }
+
+  .navMenuIcon {
+    display: none;
+  }
+
+  .navMenuOpened {
+    max-height: unset;
+    overflow: visible;
+  }
+
+  .navMenuClosed {
+    max-height: unset;
+    overflow: visible;
+  }
+
+  .icon {
+    margin-right: 25px;
+    width: 75px;
+  }
+}
