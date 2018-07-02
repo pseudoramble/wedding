@@ -10,7 +10,7 @@ h1, h2, h3 {
 }
 
 .wrapper {
-  background-image: url('./assets/us-desktop.jpg');
+  background-image: url('./assets/us-desktop-resized.jpg');
   background-size: cover;
   background-position: 22% 0;
   background-repeat: no-repeat;
@@ -122,7 +122,7 @@ h1, h2, h3 {
 /* Extra-Narrow Small */
 @media (max-width: 60vh) and (max-width: 414px) {  
   .wrapper {
-    background-image: url('./assets/us-mobile.jpg');
+    background-image: url('./assets/us-mobile-resized.jpg');
     background-repeat: no-repeat;
     background-position: 50% 0;
   }
