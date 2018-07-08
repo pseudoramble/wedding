@@ -20,7 +20,7 @@ h1, h2, h3 {
 }
 
 .ourNames {
-  font-family: 'Merriweather';
+  font-family: 'Vollkorn', serif;
   font-size: 5.5rem;
   font-style: italic;
   font-weight: 900;
@@ -30,7 +30,7 @@ h1, h2, h3 {
 }
 
 .ourNames .amper {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .enter {
@@ -136,14 +136,14 @@ h1, h2, h3 {
   }
 
   .ourNames {
-    font-family: 'Merriweather';
+    font-family: 'Vollkorn', serif;
     font-size: 55px;
     text-align: right;
     margin-right: 1%;
   }
 
   .ourNames .amper {
-    font-size: 1.5em;
+    font-size: 1em;
     display: block;
     margin-bottom: -15px;
   }
