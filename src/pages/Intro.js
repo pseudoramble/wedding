@@ -74,16 +74,26 @@ class NavMenuBar extends Component {
   }
 };
 
-export default () => (
-  <div>
-    <NavMenuBar />
+class Intro extends Component {
+  componentWillUpdate() {
+    window.scrollTo(0, 0);
+  }
 
-    <article className={wrapperStyles.content}>
-      <Switch>
-        <Route path="/wedding/our-story" component={OurStory} />
-        <Route path="/wedding/the-day" component={TheDay} />
-        <Route path="/wedding/get-ready" component={GetReady} />
-      </Switch>
-    </article>
-  </div>
-)
+  render() {
+    return (
+      <div>
+        <NavMenuBar />
+    
+        <article className={wrapperStyles.content}>
+          <Switch>
+            <Route path="/wedding/our-story" component={OurStory} />
+            <Route path="/wedding/the-day" component={TheDay} />
+            <Route path="/wedding/get-ready" component={GetReady} />
+          </Switch>
+        </article>
+      </div>
+    );
+  }
+};
+
+export default Intro;
