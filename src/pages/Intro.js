@@ -46,7 +46,7 @@ class NavMenuBar extends Component {
           onClick={this.toggleMenu}
         >
           <i className={`fa fa-bars ${wrapperStyles.navMenuIcon}`} style={{ marginLeft: '2%' }} />
-          <span><Link className={wrapperStyles.backLink} to="/">Kerry & Doug</Link></span>
+          <span>Kerry & Doug</span>
           <span><Link className={wrapperStyles.backLink} to="/"><img className={wrapperStyles.icon} src={buttonIcon} /></Link></span>
         </div>
         <nav className={classes}>
