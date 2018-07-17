@@ -101,7 +101,7 @@ export default () => (
       After a sufficiently long enough waiting period to make Kerry's mom "just kind of give up" waiting for an
       engagement phone call <span style={smallText}>(while truncated, that quote is verbatim)</span> the time had finally come to move forward in
       their relationship. Doug had tried to get his act together. He really did. However, obliviousness struck again
-      which managed to make him miss important dates, one after the other. First Summer 2017, then Thanksgiving 2017,
+      which managed to make him miss several important dates. First Summer 2017, then Thanksgiving 2017,
       then Christmas 2017, one after the other. Needless to say, this was not going well.
     </p>
 
@@ -135,10 +135,9 @@ export default () => (
     <strong>And of course, you guys!</strong>
 
     <p>
-      An important thread exists in our story, as they do in many stories - the
-      "secondary" characters are equally as important, or perhaps even more. Between
-      family taking care of us every step of the way, friends to introduce us and make have fun,
-      you've all created memories for our lifetimes.
+      An important theme exists in our story - the "secondary" characters are equally as important, or perhaps even more.
+      Every one of our family members and friends are the threads between our memories.
+      You are all part of what has made our lives truly meaningful.
     </p>
 
     <p>
