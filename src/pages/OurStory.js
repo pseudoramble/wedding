@@ -28,7 +28,7 @@ export default () => (
     </p>
 
     <p style={centered}>
-      <img className={ContentStyles.img} src={firstSighting} alt="Doug's looking exceptionally proud" />
+      <img className={ContentStyles.img} src={firstSighting} title="Doug's looking exceptionally proud" />
       <div style={smallText}>
         The first sighting. Same bar, same time, unknown to each other. Destiny?
       </div>
@@ -61,7 +61,7 @@ export default () => (
     </p>
     
     <p style={centered}>
-      <img className={ContentStyles.img} src={sameBarDifferentTime} alt="There is a funny Facebook thread about this photo. Ask us!" />
+      <img className={ContentStyles.img} src={sameBarDifferentTime} title="There is a funny Facebook thread about this photo. Ask us!" />
       <div style={smallText}>
         Us out later on. Same place as the 1st photo funny enough.
       </div>
@@ -89,7 +89,7 @@ export default () => (
     </p>
 
     <p style={centered}>
-      <img className={ContentStyles.img} src={usLookingNeat} alt="We wouldn't waste your time with 'nice' photos" />
+      <img className={ContentStyles.img} src={usLookingNeat} title="We wouldn't waste your time with 'nice' photos" />
       <div style={smallText}>
         Many variants of this photo exist. It has been a staple in our relationship.
       </div>
@@ -126,7 +126,7 @@ export default () => (
     </p>
 
     <p style={centered}>
-      <img className={ContentStyles.img} src={usEngaged} alt="There's a less fake-news photo available as well" />
+      <img className={ContentStyles.img} src={usEngaged} title="There's a less fake-news photo available as well" />
       <div style={smallText}>
         We did it!
       </div>
