@@ -20,7 +20,7 @@ class Form extends React.Component {
     };
   }
 
-  subscribe() {
+  subscribe(e) {
     const data = encode({
       'email': this.state.email,
       'form-name': 'subscribeUpdates'
@@ -33,8 +33,14 @@ class Form extends React.Component {
       .redirects(0)
       .send(data)
       .then(() => {
+        console.info('submitted!');
         this.setState({ submitted: true });
+      })
+      .catch(err => {
+        alert(error);
       });
+    
+    e.preventDefault();
   }
 
   renderForm() {
