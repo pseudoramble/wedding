@@ -30,6 +30,7 @@ class Form extends React.Component {
       .post('/')
       .method('POST')
       .set('Content-Type', 'application/x-www-form-urlencoded')
+      .redirects(0)
       .send(data)
       .then(() => {
         this.setState({ submitted: true });
