@@ -13,6 +13,19 @@
   </head>
   <body>
     <div id="app" />
+
+    <form name="subscribeUpdates" method="POST" netlify netlify-honeypot="your-secret-email" hidden>
+      <input type="hidden" name="form-name" value="subscribeUpdates" />
+      <input type="hidden" name="your-secret-email" />
+      <div>
+        <span>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@somewhere.com" />
+        </span>
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+
     <script src="./index.js"></script>
   </body>
 </html>

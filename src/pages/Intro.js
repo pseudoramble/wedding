@@ -7,6 +7,7 @@ import buttonIcon from '../assets/vt-lite.png';
 import GetReady from './GetReady';
 import OurStory from './OurStory';
 import TheDay from './TheDay';
+import Thanks from './Thanks';
 
 const HeaderLink = ({ children, onClick, to }) => (
   <span className={wrapperStyles.navMenuItem}>
@@ -89,6 +90,7 @@ class Intro extends Component {
             <Route path="/wedding/our-story" component={OurStory} />
             <Route path="/wedding/the-day" component={TheDay} />
             <Route path="/wedding/get-ready" component={GetReady} />
+            <Route path="/wedding/thanks" component={Thanks} />
           </Switch>
         </article>
       </div>
