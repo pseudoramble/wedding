@@ -1,13 +1,37 @@
 import React from 'react';
+
 import Form from './Form';
+import Thanks from './Thanks';
 
-export default () => (
-  <React.Fragment>
-    <h1>Let's Get Ready!</h1>
-    <p>
-      Soon! If you'd like to hear about site updates, subscribe below and we'll email you now-and-then.
-    </p>
+class GetReady extends React.Component {
+  constructor() {
+    super();
 
-    <Form />
-  </React.Fragment>
-)
+    this.state = {
+      submitted: false
+    }
+  }
+
+  render() {
+    if (this.state.submitted) {
+      return <Thanks />;
+    }
+
+    return (
+      <React.Fragment>
+        <h1>Let's Get Ready!</h1>
+        <p>
+          Come back here later on to walk through getting ready for the big day!
+        </p>
+
+        <p>
+          Want to know when this is ready? Subscribe below and we'll email you when this & other updates are done.
+        </p>
+
+        <Form onSubscribe={() => this.setState({ submitted: true })} />
+      </React.Fragment>
+    );
+  }
+}
+
+export default GetReady;

@@ -1,10 +1,7 @@
 import React from 'react';
 import request from 'superagent';
 
-import Thanks from './Thanks';
-
 import FormStyles from './Form.css';
-
 
 const encode = data => 
   Object.keys(data)
@@ -16,35 +13,30 @@ class Form extends React.Component {
     super();
 
     this.state = {
-      submitted: false
+      email: '',
+      'form-name': 'subscribeUpdates'
     };
   }
 
   subscribe(e) {
-    const data = encode({
-      'email': this.state.email,
-      'form-name': 'subscribeUpdates'
-    });
+    const data = encode(this.state);
 
     request
       .post('/')
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .redirects(0)
       .send(data)
-      .then(() => {
-        console.info('submitted!');
-        this.setState({ submitted: true });
-      })
+      .then(this.props.onSubscribe)
       .catch(err => {
-        alert(error);
+        console.error('failure during subscribe submission: ', err);
       });
     
     e.preventDefault();
   }
 
-  renderForm() {
+  render() {
     return (
-      <form onSubmit={this.subscribe.bind(this)} name="subscribeUpdates" netlify netlify-honeypot="your-secret-email">
+      <form onSubmit={e => this.subscribe(e)} name="subscribeUpdates" netlify netlify-honeypot="your-secret-email">
         <input type="hidden" name="form-name" value="subscribeUpdates" />
         <div className={FormStyles.formWrapper}>
           <span className={FormStyles.inputs}>
@@ -55,10 +47,6 @@ class Form extends React.Component {
         </div>
       </form>
     );
-  }
-
-  render() {
-    return !this.state.submitted ? this.renderForm() : <Thanks />
   }
 }
 
