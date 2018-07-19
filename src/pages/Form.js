@@ -13,4 +13,4 @@ export default () => (
       <button className={FormStyles.submit} type="submit">Subscribe</button>
     </div>
   </form>
-)
+);
