@@ -1,5 +1,5 @@
 import React from 'react';
-import superagent from 'superagent';
+import request from 'superagent';
 
 import Thanks from './Thanks';
 
