@@ -8,6 +8,7 @@ class GetReady extends React.Component {
     super();
 
     this.state = {
+      isPartying: false,
       submitted: false
     }
   }
@@ -21,7 +22,13 @@ class GetReady extends React.Component {
       <React.Fragment>
         <h1>Let's Get Ready!</h1>
         <p>
-          Come back here later on to walk through getting ready for the big day!
+          Sorry, this isn't quite ready yet. So for now, <a href="#" onClick={() => this.setState({ isPartying: !this.state.isPartying })}>channel the party parrot</a>.
+        </p>
+
+        <p>
+          { this.state.isPartying && 
+              <img src="https://appstickers-cdn.appadvice.com/1158454115/819397787/4534b0f0c56c20c70a08a4f81acc1153-3.gif" />
+          }
         </p>
 
         <p>
@@ -29,6 +36,7 @@ class GetReady extends React.Component {
         </p>
 
         <Form onSubscribe={() => this.setState({ submitted: true })} />
+
       </React.Fragment>
     );
   }

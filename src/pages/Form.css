@@ -16,8 +16,6 @@
 .submit {
   font-weight: 800;
   font-size: 1.25rem;
-
-  border: 1px sold black;
 }
 
 .submit:active {
@@ -27,5 +25,9 @@
 @media (min-width: 80vh) {
   .formWrapper {
     max-width: 75%;
+  }
+
+  .submit {
+    width: 50%;
   }
 }
