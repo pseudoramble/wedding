@@ -27,20 +27,34 @@ export default class Flow extends Component {
 
     this.setState({
       answers: replace(this.state.answers, promptInfo.id, { id: promptInfo.id, value }),
-      currentQuestion: nextPrompt.id
+      currentQuestion: nextPrompt.id,
+      history: [
+        ...this.state.history,
+        promptInfo.id
+      ]
     });
+  }
+
+  onBack(promptInfo) {
+    if (promptInfo.id !== prompts[0].id) {
+      this.setState({
+        currentQuestion: this.state.history[this.state.history.length - 1],
+        history: this.state.history.slice(0, this.state.history.length - 1)
+      });
+    }
   }
 
   renderPrompt(id) {
     const promptInfo = prompts.find(p => p.id === id);
     const onResponse = value => this.onResponse(promptInfo, value);
+    const onBack = () => this.onBack(promptInfo);
 
     if (promptInfo.type === 'info') {
-      return <InfoPrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
+      return <InfoPrompt onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
     } else if (promptInfo.type === 'choice') {
-      return <ChoicePrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
+      return <ChoicePrompt onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
     } else if (promptInfo.type === 'input') {
-      return <InputPrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} type={promptInfo.inputType} optional={promptInfo.optional} />
+      return <InputPrompt onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} type={promptInfo.inputType} optional={promptInfo.optional} />
     }
 
     return <FinishedPrompt />;

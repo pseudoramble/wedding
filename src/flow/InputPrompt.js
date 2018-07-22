@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputPrompt = ({ onResponse, title, subtitle, type }) => {
+const InputPrompt = ({ onBack, onResponse, title, subtitle, type }) => {
   const inputRef = React.createRef();
 
   return (
@@ -8,7 +8,15 @@ const InputPrompt = ({ onResponse, title, subtitle, type }) => {
       <h1>{title}</h1>
       {subtitle && <p>{subtitle}</p>}
       {type === 'text' && <input type='text' ref={inputRef} />}
-      <button onClick={() => onResponse(inputRef.current.value)}>Next</button>
+      
+      <button
+        onClick={() => onResponse(inputRef.current.value)}>
+        Next
+      </button>
+      
+      <button onClick={onBack}>
+        Back
+      </button>
     </div>
   );
 }
