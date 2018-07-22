@@ -28,14 +28,46 @@ const prompts = [
   {
     type: 'choice',
     title: "Would you like to reserve a hotel room?",
-    subtitle: "We have blocked off some rooms at The Hilton. We have a few other recommendations too!",
+    subtitle: "We have rooms booked off at The Hampton Inn ($100/night) and the Holiday Inn ($75/night)",
     id: "hotelReservation",
     optional: false,
     responses: [
-      ["Yes, at the Hilton", "Hilton"],
-      ["Yes, from Best Western", "Best Western"],
-      ["No thanks. I'm going to stay with the happy couple", "Apartment"],
-      ["No thanks. I'll reserve my hotel room later on", "Later"]
+      ["Yes, at the Hampton", "hotelHampton"],
+      ["Yes, at the Holiday Inn", "hotelHoliday"],
+      ["No thanks. I plan on staying elsewhere.", "hotelOther"]
+    ]
+  },
+  {
+    type: 'info',
+    title: "Info on the Hampton Inn",
+    subtitle: "The Hampton Inn has a rate of $100/night. To make a reservation, go to https://secure3.hilton.com/en_US/hp/reservation/book.htm?execution=e1s1 or call 1-802-773-9066",
+    id: "hotelHampton",
+    inputType: 'info',
+    optional: true,
+    responses: [
+      ["OK, will do!", ""]
+    ]
+  },
+  {
+    type: 'info',
+    title: "Info on the Holiday Inn",
+    subtitle: "The Holiday Inn has a rate of $75/night. To make a reservation, go to https://www.ihg.com/holidayinn/hotels/us/en/rutland/rutvt/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-RUTVT or call 1-802-775-1911",
+    id: "hotelHoliday",
+    inputType: 'info',
+    optional: true,
+    responses: [
+      ["OK, will do!", ""]
+    ]
+  },
+  {
+    type: 'info',
+    title: "Staying Elsewhere",
+    subtitle: "There are a bunch of hotels in the Rutland area to try. There are also a variety of Bed & Breakfast style locations in the area.",
+    id: "hotelOther",
+    inputType: 'info',
+    optional: true,
+    responses: [
+      ["Next", ""]
     ]
   },
   {
@@ -70,7 +102,77 @@ const prompts = [
       ["All finished", "Done"]
     ]
   }
-]
+];
+
+const when = {
+  anyResponseGiven: () => true,
+  responseValueIs: expected => actual => expected === actual
+};
+
+const flowGraph = {
+  "intro": {
+    id: "intro",
+    edges: [
+      {
+        id: "code",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "code": {
+    id: "code",
+    edges: [
+      {
+        id: "hotelReservation",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "hotelReservation": {
+    id: "hotelReservation",
+    edges: [
+      {
+        id: "hotelHampton",
+        applies: when.responseValueIs('hotelHampton')
+      },
+      {
+        id: "hotelHoliday",
+        applies: when.responseValueIs('hotelHoliday')
+      },
+      {
+        id: "hotelOther",
+        applies: when.responseValueIs('hotelOther')
+      },
+    ]
+  },
+  "hotelHampton": {
+    id: "hotelHampton",
+    edges: [
+      {
+        id: "giftPurchase",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "hotelHoliday": {
+    id: "hotelHoliday",
+    edges: [
+      {
+        id: "giftPurchase",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "hotelOther": {
+    id: "hotelOther",
+    edges: [
+      {
+        id: "giftPurchase",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+};
 
 export default class Flow extends Component {
   constructor() {
@@ -83,8 +185,11 @@ export default class Flow extends Component {
   }
 
   onResponse(promptInfo, value) {
-    console.info(promptInfo);
-    console.info(value);
+    const nextPrompt = flowGraph[promptInfo.id].edges.find(e => e.applies(value));
+
+    this.setState({
+      currentQuestion: nextPrompt.id
+    });
   }
 
   renderPrompt(id) {
@@ -94,7 +199,7 @@ export default class Flow extends Component {
     if (promptInfo.type === 'info') {
       return <InfoPrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
     } else if (promptInfo.type === 'choice') {
-      return <ChoicePrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInto.responses} optional={promptInfo.optional} />
+      return <ChoicePrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
     } else if (promptInfo.type === 'input') {
       return <InputPrompt onResponse={onResponse} title={promptInfo.title} subtitle={promptInfo.subtitle} type={promptInfo.inputType} optional={promptInfo.optional} />
     }
