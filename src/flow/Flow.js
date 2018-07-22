@@ -7,6 +7,11 @@ import FinishedPrompt from './FinishedPrompt';
 
 import { prompts, flowGraph } from './flowSetup';
 
+const replace = (values = [], id, newValue) => {
+  const replacedValues = values.filter(v => v.id !== id);
+  return [...replacedValues, newValue];
+};
+
 export default class Flow extends Component {
   constructor() {
     super();
@@ -21,6 +26,7 @@ export default class Flow extends Component {
     const nextPrompt = flowGraph[promptInfo.id].edges.find(e => e.applies(value));
 
     this.setState({
+      answers: replace(this.state.answers, promptInfo.id, { id: promptInfo.id, value }),
       currentQuestion: nextPrompt.id
     });
   }
