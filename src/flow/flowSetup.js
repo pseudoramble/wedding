@@ -11,6 +11,13 @@ export const prompts = [
     ]
   },
   {
+    type: 'login',
+    title: "You'll need to login before getting going",
+    subtitle: "The login info is on the invitation.",
+    id: "login",
+    optional: false
+  },
+  {
     type: 'input',
     title: "We need to check who you are first",
     subtitle: "Your invitation includes a code to be entered here.",
@@ -99,12 +106,26 @@ export const prompts = [
 
 const when = {
   anyResponseGiven: () => true,
+  isLoggedIn: () => false,
   responseValueIs: expected => actual => expected === actual
 };
 
 export const flowGraph = {
   "intro": {
     id: "intro",
+    edges: [
+      {
+        id: "code",
+        applies: when.isLoggedIn
+      },
+      {
+        id: "login",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "login": {
+    id: "login",
     edges: [
       {
         id: "code",

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ChoicePrompt from './ChoicePrompt';
 import InfoPrompt from './InfoPrompt';
 import InputPrompt from './InputPrompt';
+import LoginPrompt from './LoginPrompt';
 import FinishedPrompt from './FinishedPrompt';
 
 import { prompts, flowGraph } from './flowSetup';
@@ -55,6 +56,12 @@ export default class Flow extends Component {
       return <ChoicePrompt onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} responses={promptInfo.responses} optional={promptInfo.optional} />
     } else if (promptInfo.type === 'input') {
       return <InputPrompt onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} type={promptInfo.inputType} optional={promptInfo.optional} />
+    } else if (promptInfo.type === 'login') {
+      return (
+        <LoginPrompt
+          onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} optional={promptInfo.optional}
+        />
+      );
     }
 
     return <FinishedPrompt />;
