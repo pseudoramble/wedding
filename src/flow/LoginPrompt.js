@@ -1,5 +1,7 @@
 import React from 'react';
 
+const url = 'http://localhost:3141';
+
 class LoginPrompt extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class LoginPrompt extends React.Component {
     const username = this.usernameRef.current.value;
     const usercode = this.usercodeRef.current.value;
 
-    fetch('https://kerryanddoug-api.herokuapp.com/authenticate', {
+    fetch(`${url}/authenticate`, {
       method: 'POST',
       body: JSON.stringify({ username, usercode }),
       headers: {
@@ -36,7 +38,20 @@ class LoginPrompt extends React.Component {
     })
     .then(payload => {
       localStorage.setItem('token', payload.token);
-      this.props.onResponse();
+    })
+    .then(() => 
+      fetch(
+        `${url}/preregistration`,
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      ).then(resp => resp.json())
+    )
+    .then(payload => {
+      this.props.onResponse(payload);
     })
     .catch(err => {
       console.error('Unable to login for an unexpected reason');
