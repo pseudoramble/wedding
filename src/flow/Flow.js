@@ -5,6 +5,7 @@ import InfoPrompt from './InfoPrompt';
 import InputPrompt from './InputPrompt';
 import LoginPrompt from './LoginPrompt';
 import FinishedPrompt from './FinishedPrompt';
+import NameCardPrompt from './NameCardPrompt';
 
 import { prompts, flowGraph } from './flowSetup';
 
@@ -59,6 +60,12 @@ export default class Flow extends Component {
     } else if (promptInfo.type === 'login') {
       return (
         <LoginPrompt
+          onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} optional={promptInfo.optional}
+        />
+      );
+    } else if (promptInfo.type === 'namecards') {
+      return (
+        <NameCardPrompt
           onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} optional={promptInfo.optional}
         />
       );

@@ -13,86 +13,25 @@ export const prompts = [
   {
     type: 'login',
     title: "You'll need to login before getting going",
-    subtitle: "The login info is on the invitation.",
+    subtitle: "Your login information is on the invitation.",
     id: "login",
     optional: false
   },
   {
-    type: 'choice',
-    title: "Would you like to reserve a hotel room?",
-    subtitle: "We have rooms booked off at The Hampton Inn ($100/night) and the Holiday Inn ($75/night)",
-    id: "hotelReservation",
-    optional: false,
-    responses: [
-      ["Yes, at the Hampton", "hotelHampton"],
-      ["Yes, at the Holiday Inn", "hotelHoliday"],
-      ["No thanks. I plan on staying elsewhere.", "hotelOther"]
-    ]
+    type: 'namecards',
+    title: 'What names would you like on your name card(s)?',
+    id: 'namecards'
   },
   {
-    type: 'info',
-    title: "Info on the Hampton Inn",
-    subtitle: "The Hampton Inn has a rate of $100/night. To make a reservation, go to https://secure3.hilton.com/en_US/hp/reservation/book.htm?execution=e1s1 or call 1-802-773-9066",
-    id: "hotelHampton",
-    inputType: 'info',
-    optional: true,
-    responses: [
-      ["OK, will do!", ""]
-    ]
+    type: 'input',
+    inputType: 'textarea',
+    title: 'Do you have any specific dietary restrictions or requests?',
+    subtitle: "We will do our best to make accommodation.",
+    id: 'dietaryRestrictions'
   },
   {
-    type: 'info',
-    title: "Info on the Holiday Inn",
-    subtitle: "The Holiday Inn has a rate of $75/night. To make a reservation, go to https://www.ihg.com/holidayinn/hotels/us/en/rutland/rutvt/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-RUTVT or call 1-802-775-1911",
-    id: "hotelHoliday",
-    inputType: 'info',
-    optional: true,
-    responses: [
-      ["OK, will do!", ""]
-    ]
-  },
-  {
-    type: 'info',
-    title: "Staying Elsewhere",
-    subtitle: "There are a bunch of hotels in the Rutland area to try. There are also a variety of Bed & Breakfast style locations in the area.",
-    id: "hotelOther",
-    inputType: 'info',
-    optional: true,
-    responses: [
-      ["Next", ""]
-    ]
-  },
-  {
-    type: 'choice',
-    title: "Would you like to purchase a gift now?",
-    subtitle: null,
-    id: "giftPurchase",
-    optional: true,
-    responses: [
-      ["Yes, from the Amazon registry", "Amazon"],
-      ["Yes, from the other registry", "Other"],
-      ["No thanks. I'll provide a gift later on", "Later"]
-    ]
-  },
-  {
-    type: 'choice',
-    title: "Head on over to Amazon to see how you can help",
-    subtitle: null,
-    id: "amazonRegistry",
-    optional: true,
-    responses: [
-      ["All finished", "Done"]
-    ]
-  },
-  {
-    type: 'choice',
-    title: "Head on over to the other registry to see how you can help",
-    subtitle: null,
-    id: "otherRegistry",
-    optional: true,
-    responses: [
-      ["All finished", "Done"]
-    ]
+    id: 'finished',
+    type: 'finished'
   }
 ];
 
@@ -107,7 +46,7 @@ export const flowGraph = {
     id: "intro",
     edges: [
       {
-        id: "hotelReservation",
+        id: "namecards",
         applies: when.isLoggedIn
       },
       {
@@ -120,53 +59,27 @@ export const flowGraph = {
     id: "login",
     edges: [
       {
-        id: "hotelReservation",
+        id: "namecards",
         applies: when.anyResponseGiven
       }
     ]
   },
-  "hotelReservation": {
-    id: "hotelReservation",
+  "namecards": {
+    id: "namecards",
     edges: [
       {
-        id: "hotelHampton",
-        applies: when.responseValueIs('hotelHampton')
-      },
-      {
-        id: "hotelHoliday",
-        applies: when.responseValueIs('hotelHoliday')
-      },
-      {
-        id: "hotelOther",
-        applies: when.responseValueIs('hotelOther')
-      },
-    ]
-  },
-  "hotelHampton": {
-    id: "hotelHampton",
-    edges: [
-      {
-        id: "giftPurchase",
+        id: "dietaryRestrictions",
         applies: when.anyResponseGiven
       }
     ]
   },
-  "hotelHoliday": {
-    id: "hotelHoliday",
+  "dietaryRestrictions": {
+    id: "dietaryRestrictions",
     edges: [
       {
-        id: "giftPurchase",
+        id: 'finished',
         applies: when.anyResponseGiven
       }
     ]
-  },
-  "hotelOther": {
-    id: "hotelOther",
-    edges: [
-      {
-        id: "giftPurchase",
-        applies: when.anyResponseGiven
-      }
-    ]
-  },
+  }
 };
