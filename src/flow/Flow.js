@@ -64,9 +64,12 @@ export default class Flow extends Component {
         />
       );
     } else if (promptInfo.type === 'namecards') {
+      const loginAnswers = this.state.answers.find(entry => entry.id === 'login');
+      const totalGuests = loginAnswers ? loginAnswers.value.guests : parseInt(localStorage.getItem('guests'), 10);
+
       return (
         <NameCardPrompt
-          onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} optional={promptInfo.optional}
+          onResponse={onResponse} onBack={onBack} title={promptInfo.title} subtitle={promptInfo.subtitle} optional={promptInfo.optional} totalGuests={totalGuests}
         />
       );
     }

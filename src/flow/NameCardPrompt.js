@@ -4,23 +4,22 @@ class NameCardPrompt extends React.Component {
   constructor(props) {
     super(props);
 
+    const totalNames = props.totalGuests + 1;
+
     this.state = {
-      names: [React.createRef()]
+      names: [...Array(totalNames).keys()].map(() => React.createRef()),
+      totalNames
     };
 
     this.onSubmit = this.onSubmit.bind(this);
-    this.addNameCard = this.addNameCard.bind(this);
-  }
-
-  addNameCard() {
-    this.setState({
-      names: [...this.state.names, React.createRef()],
-      totalNames: this.state.totalNames + 1
-    });
   }
 
   onSubmit() {
-    this.props.onResponse(this.state.names.map(ref => ref.current.value));
+    this.props.onResponse(
+      this.state.names
+        .filter(ref => !!ref.current.value)
+        .map(ref => ref.current.value)
+    );
   }
 
   render() {
@@ -41,7 +40,6 @@ class NameCardPrompt extends React.Component {
             />
           ))
         }
-        <button onClick={this.addNameCard}>Add another name</button>
         <button onClick={this.onSubmit}>Save and Continue</button>
         <button onClick={onBack}>
           Back

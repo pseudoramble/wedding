@@ -51,6 +51,8 @@ class LoginPrompt extends React.Component {
       ).then(resp => resp.json())
     )
     .then(payload => {
+      localStorage.setItem('guests', payload.guests);
+      localStorage.setItem('kids', payload.kids);
       this.props.onResponse(payload);
     })
     .catch(err => {
