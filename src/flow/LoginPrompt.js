@@ -24,15 +24,21 @@ class LoginPrompt extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(resp => {
+    })
+    .then(resp => {
       if (!resp.ok) {
         this.setState({
           loginValid: false
         });
       } else {
-        this.props.onResponse();
+        return resp.json();
       }
-    }).catch(err => {
+    })
+    .then(payload => {
+      localStorage.setItem('token', payload.token);
+      this.props.onResponse();
+    })
+    .catch(err => {
       console.error('Unable to login for an unexpected reason');
     });
   }

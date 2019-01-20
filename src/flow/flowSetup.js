@@ -18,14 +18,6 @@ export const prompts = [
     optional: false
   },
   {
-    type: 'input',
-    title: "We need to check who you are first",
-    subtitle: "Your invitation includes a code to be entered here.",
-    id: "code",
-    inputType: 'text',
-    optional: false
-  },
-  {
     type: 'choice',
     title: "Would you like to reserve a hotel room?",
     subtitle: "We have rooms booked off at The Hampton Inn ($100/night) and the Holiday Inn ($75/night)",
@@ -106,7 +98,7 @@ export const prompts = [
 
 const when = {
   anyResponseGiven: () => true,
-  isLoggedIn: () => false,
+  isLoggedIn: () => localStorage.getItem('token'),
   responseValueIs: expected => actual => expected === actual
 };
 
@@ -115,7 +107,7 @@ export const flowGraph = {
     id: "intro",
     edges: [
       {
-        id: "code",
+        id: "hotelReservation",
         applies: when.isLoggedIn
       },
       {
@@ -126,15 +118,6 @@ export const flowGraph = {
   },
   "login": {
     id: "login",
-    edges: [
-      {
-        id: "code",
-        applies: when.anyResponseGiven
-      }
-    ]
-  },
-  "code": {
-    id: "code",
     edges: [
       {
         id: "hotelReservation",
