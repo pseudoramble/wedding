@@ -18,7 +18,7 @@ class LoginPrompt extends React.Component {
     const username = this.usernameRef.current.value;
     const usercode = this.usercodeRef.current.value;
 
-    fetch('http://127.0.0.1:3141/authenticate', {
+    fetch('https://kerryanddoug-api.herokuapp.com/authenticate', {
       method: 'POST',
       body: JSON.stringify({ username, usercode }),
       headers: {
