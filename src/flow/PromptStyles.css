@@ -1,0 +1,21 @@
+.nameCard-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.nameCard-inputs > input {
+  margin: .5em 0;
+}
+
+.navButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navButtons > button {
+  padding: 0.5em;
+  min-width: 25%;
+}

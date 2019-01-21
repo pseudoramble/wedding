@@ -1,5 +1,9 @@
 import React from 'react';
 
+import FlowNav from './FlowNav';
+
+import NameCardPromptStyles from './PromptStyles';
+
 class NameCardPrompt extends React.Component {
   constructor(props) {
     super(props);
@@ -27,23 +31,22 @@ class NameCardPrompt extends React.Component {
 
     return (
       <div>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         {subtitle && <p>{subtitle}</p>}
-        {
-          this.state.names.map((ref, i) => (
-            <input
-              type="text"
-              name="nameOnCard"
-              ref={ref}
-              placeholder="Name for card"
-              key={`nameCard-${i}`}
-            />
-          ))
-        }
-        <button onClick={this.onSubmit}>Save and Continue</button>
-        <button onClick={onBack}>
-          Back
-        </button>
+        <div class={NameCardPromptStyles['nameCard-inputs']}>
+          {
+            this.state.names.map((ref, i) => (
+              <input
+                type="text"
+                name="nameOnCard"
+                ref={ref}
+                placeholder="Name for card"
+                key={`nameCard-${i}`}
+              />
+            ))
+          }
+        </div>
+        <FlowNav onBack={onBack} onResponse={this.onSubmit} />
       </div>
     );
   }
