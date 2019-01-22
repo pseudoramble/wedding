@@ -1,5 +1,9 @@
 import React from 'react';
 
+import FlowNav from './FlowNav';
+
+import PromptStyles from './PromptStyles';
+
 const url = 'http://localhost:3141';
 
 class LoginPrompt extends React.Component {
@@ -65,27 +69,33 @@ class LoginPrompt extends React.Component {
 
     return (
       <div>
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
-        {!this.state.loginValid && <p style={{ color: 'red' }}>INVALID LOGIN</p>}
-        <input 
-          ref={this.usernameRef}
-          type='text'
-          name='username'
-          placeholder='Username'
-        >
-        </input>
-        <input
-          ref={this.usercodeRef}
-          type='password'
-          name='usercode'
-          placeholder='Passcode'
-        >
-        </input>
-        <button onClick={this.onSubmit}>Login</button>
-        <button onClick={onBack}>
-          Back
-        </button>
+        <div>
+          <h3 className={PromptStyles.title}>{title}</h3>
+          {subtitle && <p className={PromptStyles.subtitle}>{subtitle}</p>}
+          {
+            !this.state.loginValid && 
+            <p style={{ color: 'red', fontWeight: '800' }}>
+              We were not able to log you in. Double check your login information.
+            </p>
+          }
+        </div>
+        <div class={PromptStyles['login-inputs']}>
+          <input 
+            ref={this.usernameRef}
+            type='text'
+            name='username'
+            placeholder='Username'
+          >
+          </input>
+          <input
+            ref={this.usercodeRef}
+            type='password'
+            name='usercode'
+            placeholder='Passcode'
+          >
+          </input>
+        </div>
+        <FlowNav onBack={onBack} onResponse={this.onSubmit} />
       </div>
     );
   }

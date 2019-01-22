@@ -1,15 +1,21 @@
 import React from 'react';
 
+import FlowNav from './FlowNav';
+
+import PromptStyles from './PromptStyles';
+
 const InfoPrompt = ({ onBack, onResponse, title, subtitle, responses }) => (
   <div>
-    <h1>{title}</h1>
-    {subtitle && <p>{subtitle}</p>}
-    <button onClick={() => onResponse('')}>
-      {responses[0]}
-    </button>
-    <button onClick={onBack}>
-      Back
-    </button>
+    <div>
+      <h3 className={PromptStyles.title}>{title}</h3>
+      {subtitle && <p className={PromptStyles.subtitle}>{subtitle}</p>}
+    </div>
+
+    <FlowNav 
+      onBack={onBack}
+      onResponse={() => onResponse('')}
+      continueButtonText={responses[0]}
+    />
   </div>
 );
 

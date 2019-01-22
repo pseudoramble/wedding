@@ -2,7 +2,7 @@ import React from 'react';
 
 import FlowNav from './FlowNav';
 
-import NameCardPromptStyles from './PromptStyles';
+import PromptStyles from './PromptStyles';
 
 class NameCardPrompt extends React.Component {
   constructor(props) {
@@ -31,9 +31,11 @@ class NameCardPrompt extends React.Component {
 
     return (
       <div>
-        <h2>{title}</h2>
-        {subtitle && <p>{subtitle}</p>}
-        <div class={NameCardPromptStyles['nameCard-inputs']}>
+        <div>
+          <h3 className={PromptStyles.title}>{title}</h3>
+          {subtitle && <p className={PromptStyles.subtitle}>{subtitle}</p>}
+        </div>
+        <div class={PromptStyles['nameCard-inputs']}>
           {
             this.state.names.map((ref, i) => (
               <input

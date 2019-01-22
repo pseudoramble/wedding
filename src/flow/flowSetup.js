@@ -25,8 +25,8 @@ export const prompts = [
   {
     type: 'input',
     inputType: 'textarea',
-    title: 'Do you have any specific dietary restrictions or requests?',
-    subtitle: "We will do our best to make accommodation.",
+    title: 'Do you have any specific dietary restrictions?',
+    subtitle: "We will do our best to make accommodations. Please reach out if you have more concerns.",
     id: 'dietaryRestrictions'
   },
   {
