@@ -35,7 +35,7 @@ class NameCardPrompt extends React.Component {
           <h3 className={PromptStyles.title}>{title}</h3>
           {subtitle && <p className={PromptStyles.subtitle}>{subtitle}</p>}
         </div>
-        <div class={PromptStyles['nameCard-inputs']}>
+        <div className={PromptStyles['nameCard-inputs']}>
           {
             this.state.names.map((ref, i) => (
               <input

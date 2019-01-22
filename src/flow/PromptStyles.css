@@ -1,4 +1,4 @@
-.nameCard-inputs {
+.nameCard-inputs, .choice-buttons {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -6,7 +6,7 @@
   width: 75%;
 }
 
-.nameCard-inputs > input {
+.nameCard-inputs > input, .choice-buttons > button {
   margin: .5em 0;
 }
 
@@ -41,7 +41,7 @@
   justify-content: space-around;
 }
 
-.navButtons > button {
+.navButtons > button, .promptButton {
   padding: 0.5em;
   min-width: 25%;
 }

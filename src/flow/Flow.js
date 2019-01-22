@@ -74,7 +74,8 @@ export default class Flow extends Component {
       );
     }
 
-    return <FinishedPrompt />;
+    const attending = this.state.answers.find(entry => entry.id === 'attending').value;
+    return <FinishedPrompt attending={attending} />;
   };
 
   render() {

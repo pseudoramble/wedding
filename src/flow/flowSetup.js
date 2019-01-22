@@ -4,8 +4,7 @@ export const prompts = [
     title: "Woohoo! Let's get ready!",
     subtitle: "We'll walk you through step-by-step what you should do to get ready. If you have any questions or think something is missing, contact us!",
     id: "intro",
-    inputType: 'info',
-    optional: true,
+    optional: false,
     responses: [
       ["Let's do it!", ""]
     ]
@@ -18,9 +17,29 @@ export const prompts = [
     optional: false
   },
   {
+    type: 'choice',
+    title: 'Will you be attending?',
+    id: 'attending',
+    optional: false,
+    responses: [
+      ["Yes, we excitedly accept!", true],
+      ["No, we regretfully decline.", false]
+    ]
+  },
+  {
     type: 'namecards',
     title: 'What names would you like on your name card(s)?',
+    subtitle: 'This isn\'t for the kids. That\'s why you do not see a spot for them!',
     id: 'namecards'
+  },
+  {
+    type: 'choice',
+    title: 'Are you bringing any kids with you?',
+    id: 'kiddos',
+    responses: [
+      ["Yes", 1],
+      ["No", 0]
+    ]
   },
   {
     type: 'input',
@@ -37,8 +56,9 @@ export const prompts = [
 
 const when = {
   anyResponseGiven: () => true,
-  isLoggedIn: () => localStorage.getItem('token'),
-  responseValueIs: expected => actual => expected === actual
+  userIsLoggedIn: () => localStorage.getItem('token'),
+  responseValueIs: expected => actual => expected === actual,
+  userCanBringKids: () => localStorage.getItem('kids') > 0
 };
 
 export const flowGraph = {
@@ -46,8 +66,8 @@ export const flowGraph = {
     id: "intro",
     edges: [
       {
-        id: "namecards",
-        applies: when.isLoggedIn
+        id: "attending",
+        applies: when.userIsLoggedIn
       },
       {
         id: "login",
@@ -59,13 +79,39 @@ export const flowGraph = {
     id: "login",
     edges: [
       {
-        id: "namecards",
+        id: "attending",
         applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "attending": {
+    id: "attending",
+    edges: [
+      {
+        id: "namecards",
+        applies: when.responseValueIs(true)
+      },
+      {
+        id: "finished",
+        applies: when.responseValueIs(false)
       }
     ]
   },
   "namecards": {
     id: "namecards",
+    edges: [
+      {
+        id: "kiddos",
+        applies: when.userCanBringKids
+      },
+      {
+        id: "dietaryRestrictions",
+        applies: when.anyResponseGiven
+      }
+    ]
+  },
+  "kiddos": {
+    id: "kiddos",
     edges: [
       {
         id: "dietaryRestrictions",
