@@ -30,12 +30,12 @@ export const prompts = [
     type: 'namecards',
     title: 'What names would you like on your name card(s)?',
     subtitle: 'This isn\'t for the kids. That\'s why you do not see a spot for them!',
-    id: 'namecards'
+    id: 'registeredNames'
   },
   {
     type: 'choice',
     title: 'Are you bringing any kids with you?',
-    id: 'kiddos',
+    id: 'kidCount',
     responses: [
       ["Yes", 1],
       ["No", 0]
@@ -46,7 +46,8 @@ export const prompts = [
     inputType: 'textarea',
     title: 'Do you have any specific dietary restrictions?',
     subtitle: "We will do our best to make accommodations. Please reach out if you have more concerns.",
-    id: 'dietaryRestrictions'
+    id: 'dietaryRestrictions',
+    persist: true
   },
   {
     id: 'finished',
@@ -88,20 +89,21 @@ export const flowGraph = {
     id: "attending",
     edges: [
       {
-        id: "namecards",
+        id: "registeredNames",
         applies: when.responseValueIs(true)
       },
       {
         id: "finished",
         applies: when.responseValueIs(false)
       }
-    ]
+    ],
+    shouldPersist: when.responseValueIs(false)
   },
-  "namecards": {
-    id: "namecards",
+  "registeredNames": {
+    id: "registeredNames",
     edges: [
       {
-        id: "kiddos",
+        id: "kidCount",
         applies: when.userCanBringKids
       },
       {
@@ -110,8 +112,8 @@ export const flowGraph = {
       }
     ]
   },
-  "kiddos": {
-    id: "kiddos",
+  "kidCount": {
+    id: "kidCount",
     edges: [
       {
         id: "dietaryRestrictions",
@@ -126,6 +128,7 @@ export const flowGraph = {
         id: 'finished',
         applies: when.anyResponseGiven
       }
-    ]
+    ],
+    shouldPersist: when.anyResponseGiven
   }
 };

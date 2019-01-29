@@ -14,6 +14,8 @@ const replace = (values = [], id, newValue) => {
   return [...replacedValues, newValue];
 };
 
+const url = 'http://localhost:3141';
+
 export default class Flow extends Component {
   constructor() {
     super();
@@ -28,12 +30,25 @@ export default class Flow extends Component {
     const nextPrompt = flowGraph[promptInfo.id].edges.find(e => e.applies(value));
 
     this.setState({
-      answers: replace(this.state.answers, promptInfo.id, { id: promptInfo.id, value }),
-      currentQuestion: nextPrompt.id,
-      history: [
-        ...this.state.history,
-        promptInfo.id
-      ]
+      answers: replace(this.state.answers, promptInfo.id, { id: promptInfo.id, value })
+    }, () => {
+      new Promise((resolve, reject) => {
+        const currentNode = flowGraph[promptInfo.id];
+        if (currentNode.shouldPersist && currentNode.shouldPersist(value)) {
+          this.sendToMotherShip(this.state.answers).then(resolve).catch(reject);
+        } else {
+          resolve();
+        }
+      })
+      .then(() => {
+        this.setState({
+          currentQuestion: nextPrompt.id,
+          history: [
+            ...this.state.history,
+            promptInfo.id
+          ]
+        });
+      })
     });
   }
 
@@ -44,6 +59,24 @@ export default class Flow extends Component {
         history: this.state.history.slice(0, this.state.history.length - 1)
       });
     }
+  }
+
+  sendToMotherShip(answers) {
+    const answersPayload = answers.reduce((acc, answer) => 
+      Object.assign({}, acc, { [answer.id]: answer.value })
+    , { kidCount: parseInt(localStorage.getItem('kids')) });
+
+    return fetch(`${url}/register`, {
+        method: 'POST',
+        body: JSON.stringify(answersPayload),
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json'
+        }
+      })
+      .catch(err => {
+        console.error('An issue happened while sending data: ', err);
+      });
   }
 
   renderPrompt(id) {

@@ -14,19 +14,17 @@ class LoginPrompt extends React.Component {
       loginValid: true
     };
 
-    this.usernameRef = React.createRef();
     this.usercodeRef = React.createRef();
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit() {
-    const username = this.usernameRef.current.value;
     const usercode = this.usercodeRef.current.value;
 
     fetch(`${url}/authenticate`, {
       method: 'POST',
-      body: JSON.stringify({ username, usercode }),
+      body: JSON.stringify({ usercode }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -75,21 +73,14 @@ class LoginPrompt extends React.Component {
           {
             !this.state.loginValid && 
             <p style={{ color: 'red', fontWeight: '800' }}>
-              We were not able to log you in. Double check your login information.
+              We were not able to log you in. Double check your PIN and let us know if problems persist.
             </p>
           }
         </div>
         <div class={PromptStyles['login-inputs']}>
-          <input 
-            ref={this.usernameRef}
-            type='text'
-            name='username'
-            placeholder='Username'
-          >
-          </input>
           <input
             ref={this.usercodeRef}
-            type='password'
+            type='text'
             name='usercode'
             placeholder='Passcode'
           >
