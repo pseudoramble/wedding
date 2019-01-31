@@ -5,7 +5,7 @@ export default () => (
     <h1>The Wedding Day</h1>
     <p>
       <span>Join us on </span>
-      <strong>May 11th, 2018</strong>
+      <strong>May 11th, 2019</strong>
       <span> in </span>
       <strong>Wallingford, VT</strong>.
     </p>
