@@ -4,7 +4,7 @@ import FlowNav from './FlowNav';
 
 import PromptStyles from './PromptStyles';
 
-const url = 'http://localhost:3141';
+const url = 'https://kerryanddoug-api.herokuapp.com';
 
 class LoginPrompt extends React.Component {
   constructor(props) {

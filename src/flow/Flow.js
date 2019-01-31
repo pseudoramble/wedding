@@ -14,7 +14,7 @@ const replace = (values = [], id, newValue) => {
   return [...replacedValues, newValue];
 };
 
-const url = 'http://localhost:3141';
+const url = 'https://kerryanddoug-api.herokuapp.com';
 
 export default class Flow extends Component {
   constructor() {
