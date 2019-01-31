@@ -29,6 +29,7 @@ export default class Flow extends Component {
   componentDidMount() {    
     return fetch(`${url}/registered`, {
       method: 'GET',
+      mode: 'cors',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
@@ -93,6 +94,7 @@ export default class Flow extends Component {
     return fetch(`${url}/register`, {
         method: 'POST',
         body: JSON.stringify(answersPayload),
+        mode: 'cors',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'

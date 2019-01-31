@@ -25,6 +25,7 @@ class LoginPrompt extends React.Component {
     fetch(`${url}/authenticate`, {
       method: 'POST',
       body: JSON.stringify({ usercode }),
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       }
