@@ -46,7 +46,7 @@ export default class Flow extends Component {
       }
     })
     .catch(err => {
-      console.error('An issue happened while checking if they were registered already: ', err);
+      console.error('An issue happened when checking if they were registered already: ', err);
     });
   }
 
