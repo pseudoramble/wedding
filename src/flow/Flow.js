@@ -26,6 +26,30 @@ export default class Flow extends Component {
     };
   }
 
+  componentDidMount() {    
+    return fetch(`${url}/registered`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+          .then(attending => {
+            this.setState({
+              currentQuestion: 'finished',
+              answers: [{ id: 'attending', value: attending }]
+            });
+        })
+      }
+    })
+    .catch(err => {
+      console.error('An issue happened while checking if they were registered already: ', err);
+    });
+  }
+
   onResponse(promptInfo, value) {
     const nextPrompt = flowGraph[promptInfo.id].edges.find(e => e.applies(value));
 
@@ -107,8 +131,8 @@ export default class Flow extends Component {
       );
     }
 
-    const attending = this.state.answers.find(entry => entry.id === 'attending').value;
-    return <FinishedPrompt attending={attending} />;
+    const attendingEntry = this.state.answers.find(entry => entry.id === 'attending');
+    return <FinishedPrompt attending={attendingEntry ? attendingEntry.value : true} />;
   };
 
   render() {
