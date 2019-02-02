@@ -2,3 +2,40 @@
   width: 100%;
   max-width: 600px;
 }
+
+.lodgingOptions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lodgingOptions > div {
+  margin-bottom: 1em;
+}
+
+.lodgingOptionsInfo {
+  font-size: .75em;
+}
+
+.lodgingOptionsMap {
+  width: 335px;
+  height: 250px;
+}
+
+@media (min-width: 60vh) {
+}
+
+@media (min-width: 80vh) {
+  .lodgingOptions {
+    width: 950px;
+    flex-direction: row;
+  }
+  .lodgingOptionsMap {
+    width: 400px;
+    height: 300px;
+  }
+}
