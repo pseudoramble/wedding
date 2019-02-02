@@ -2,3 +2,58 @@
   width: 100%;
   max-width: 600px;
 }
+
+.lodgingOptions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.giftOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.giftOptionsImg {
+  width: 50%;
+  max-width: 400px;
+}
+
+.lodgingOptions > div {
+  margin-bottom: 1em;
+}
+
+.lodgingOptionsInfo {
+  font-size: .75em;
+}
+
+.lodgingOptionsMap {
+  width: 335px;
+  height: 250px;
+}
+
+@media (min-width: 80vh) {
+  .giftOptions {
+    flex-direction: row;
+    margin: initial;
+    text-align: left;
+  }
+  .giftOptionsImg {
+    width: 100%;
+  }
+  .lodgingOptions {
+    width: 950px;
+    flex-direction: row;
+  }
+  .lodgingOptionsMap {
+    width: 400px;
+    height: 300px;
+  }
+}

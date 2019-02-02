@@ -6,8 +6,11 @@ import buttonIcon from '../assets/vt-lite.png';
 
 import GetReady from './GetReady';
 import OurStory from './OurStory';
-import TheDay from './TheDay';
+import TheWeekend from './TheWeekend';
 import Thanks from './Thanks';
+import Registry from './Registry';
+import Lodging from './Lodging';
+import MoreInfo from './MoreInfo';
 
 const HeaderLink = ({ children, onClick, to }) => (
   <span className={wrapperStyles.navMenuItem}>
@@ -57,16 +60,34 @@ class NavMenuBar extends Component {
               Our Story
             </span>
           </HeaderLink>
-          <HeaderLink onClick={this.toggleMenu} to="/wedding/the-day">
+          <HeaderLink onClick={this.toggleMenu} to="/wedding/the-weekend">
             <i className="fa fa-map-marked-alt" style={iconStyles} />
             <span style={{ paddingLeft: '10px' }}>
-              The Day
+              The Weekend
             </span>
           </HeaderLink>
           <HeaderLink onClick={this.toggleMenu} to="/wedding/get-ready">
             <i className="fa fa-calendar-alt" style={iconStyles} />
             <span style={{ paddingLeft: '10px' }}>
-              Get Ready!
+              RSVP!
+            </span>
+          </HeaderLink>
+          <HeaderLink onClick={this.toggleMenu} to="/wedding/lodging">
+            <i className="fa fa-hotel" style={iconStyles} />
+            <span style={{ paddingLeft: '10px' }}>
+              Lodging
+            </span>
+          </HeaderLink>
+          <HeaderLink onClick={this.toggleMenu} to="/wedding/registry">
+            <i className="fa fa-gift" style={iconStyles} />
+            <span style={{ paddingLeft: '10px' }}>
+              Registry
+            </span>
+          </HeaderLink>
+          <HeaderLink onClick={this.toggleMenu} to="/wedding/more-info">
+            <i className="fa fa-walking" style={iconStyles} />
+            <span style={{ paddingLeft: '10px' }}>
+              Activities Nearby
             </span>
           </HeaderLink>
         </nav>
@@ -88,9 +109,12 @@ class Intro extends Component {
         <article className={wrapperStyles.content}>
           <Switch>
             <Route path="/wedding/our-story" component={OurStory} />
-            <Route path="/wedding/the-day" component={TheDay} />
+            <Route path="/wedding/the-weekend" component={TheWeekend} />
             <Route path="/wedding/get-ready" component={GetReady} />
             <Route path="/wedding/thanks" component={Thanks} />
+            <Route path="/wedding/registry" component={Registry} />
+            <Route path="/wedding/lodging" component={Lodging} />
+            <Route path="/wedding/more-info" component={MoreInfo} />
           </Switch>
         </article>
       </div>
