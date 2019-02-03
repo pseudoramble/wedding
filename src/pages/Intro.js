@@ -85,9 +85,9 @@ class NavMenuBar extends Component {
             </span>
           </HeaderLink>
           <HeaderLink onClick={this.toggleMenu} to="/wedding/more-info">
-            <i className="fa fa-info-circle" style={iconStyles} />
+            <i className="fa fa-walking" style={iconStyles} />
             <span style={{ paddingLeft: '10px' }}>
-              More Info
+              Activities Nearby
             </span>
           </HeaderLink>
         </nav>
