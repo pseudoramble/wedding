@@ -25,7 +25,7 @@ export default () => (
         <div className={ContentStyles.lodgingOptionsInfo}>
           <div>$125/night + tax</div>
           <div>
-            <a href="https://secure3.hilton.com/en_US/hp/reservation/book.htm?inputModule=HOTEL&ctyhocn=RTLHHHX&spec_plan=CHHWSW&arrival=20190510&departure=20190512&cid=OM,WW,HILTONLINK,EN,DirectLink&fromId=HILTONLINKDIRECT">
+            <a target="_blank" href="https://secure3.hilton.com/en_US/hp/reservation/book.htm?inputModule=HOTEL&ctyhocn=RTLHHHX&spec_plan=CHHWSW&arrival=20190510&departure=20190512&cid=OM,WW,HILTONLINK,EN,DirectLink&fromId=HILTONLINKDIRECT">
               Book Online
             </a> or call <a href="1-802-773-9066">802-773-9066</a>.
           </div>
@@ -48,7 +48,7 @@ export default () => (
         <div className={ContentStyles.lodgingOptionsInfo}>
           <div>$85.00/night + tax</div>
           <div>
-            <a href="https://www.choicehotels.com/reservations/groups/nr33z9?source=EMCHGGI&checkInDate=2019-05-10&checkOutDate=2019-05-12&ratePlanCode=BONVXC">
+            <a target="_blank" href="https://www.choicehotels.com/reservations/groups/nr33z9?source=EMCHGGI&checkInDate=2019-05-10&checkOutDate=2019-05-12&ratePlanCode=BONVXC">
               Book Online
             </a> or call <a href="tel:1-802-775-2200">802-775-2200</a>.
           </div>
@@ -79,7 +79,7 @@ export default () => (
     </div>
 
     <p>
-      There are <a href="https://www.airbnb.com/s/homes?refinement_paths%5B%5D=%2Fhomes&query=Wallingford%2C%20VT%2C%20United%20States&checkin=2019-05-10&checkout=2019-05-12&toddlers=0&allow_override%5B%5D=&s_tag=mc95cK2K">some Airbnb options available</a> in the Rutland/Wallingford area as well.
+      There are <a target="_blank" href="https://www.airbnb.com/s/homes?refinement_paths%5B%5D=%2Fhomes&query=Wallingford%2C%20VT%2C%20United%20States&checkin=2019-05-10&checkout=2019-05-12&toddlers=0&allow_override%5B%5D=&s_tag=mc95cK2K">some Airbnb options available</a> in the Rutland/Wallingford area as well.
     </p>
 
     <p>
