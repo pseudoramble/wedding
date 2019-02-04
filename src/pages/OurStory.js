@@ -141,7 +141,7 @@ export default () => (
     </p>
 
     <p>
-      <Link to="/wedding/the-day">So come make more memories with us!</Link>
+      <Link to="/wedding/the-weekend">So come make more memories with us!</Link>
     </p>
   </React.Fragment>
 )
