@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import AmazonLogo from '../assets/amazon-logo.jpg';
 import ContentStyles from './Content.css';
 
 export default () => (
