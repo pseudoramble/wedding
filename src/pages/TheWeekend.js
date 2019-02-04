@@ -8,14 +8,19 @@ export default () => (
     <p>
       <span>Join us on </span>
       <strong>May 11th, 2019</strong>
-      <span> in </span>
-      <strong>Wallingford, VT</strong>.
+      <span> at the </span>
+      <a target="_blank" href="https://goo.gl/maps/1ynWMCCAymy">
+        <strong>
+          Wallingford Lodge, Wallingford, VT
+        </strong>
+      </a>
+      .
     </p>
 
     <p>
       For our wedding, we want to <strong>make unforgettable memories with all of our loved ones </strong>
       and of course <strong>have a truck-load of fun!</strong> So be ready for a wedding made for fun, with accents
-      of tradition throughout the weekend.
+      of tradition.
     </p>
 
     <h3>On Friday</h3>
@@ -27,19 +32,19 @@ export default () => (
 
     <h3>On Saturday</h3>
     <p>
-      We first will have a brief ceremony which <strong>start at 4:00pm</strong>. 
-      This will be immediately followed by a cocktail hour and reception at the same location.
+      We first will have a brief ceremony <strong>starting at 4:00pm</strong>. 
+      The cocktail hour and reception will follow immediately at the same location.
     </p>
     <p>
-      The reception and cocktail hour will include drinks, lawn games, music, and dancing
-      for the rest of the evening. We invite you to find what's most fun for
-      you at any point during the reception and enjoy yourself!
+      The reception and cocktail hour will include drinks, lawn games, music,
+       and dancing. Find what's most fun for you at any point during the
+       reception and enjoy yourself!
     </p>
 
     <p>
-      For dinner and refreshments we plan on having everything you'll need to enjoy yourself, 
-      including beer, wine, and food. Catering will be provided by Open Hearth Pizza, which includes pizza (of course)
-      along with salad and other hor d'euvres.
+      For dinner and refreshments we plan on having everything you'll need, 
+      including beer, wine, and food. Catering will be provided by Open Hearth Pizza,
+      including pizza (of course) along with salad and hor d'euvres.
     </p>
 
     <p>
@@ -51,8 +56,9 @@ export default () => (
     
     <h3>On Sunday</h3>
     <p>
-      After the event, we invite you to come back to the site of the ceremony and reception for coffee and doughnuts.
-      It will be one last good chance to catch up and say our goodbyes at the end of a wonderful weekend.
+      After the event, come back to the site of the ceremony and reception for
+      coffee and doughnuts. It will be one last chance to catch up and say our
+      goodbyes at the end of a wonderful weekend.
     </p>
   </React.Fragment>
 )
