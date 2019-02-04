@@ -20,10 +20,9 @@ export default () => (
 
     <h3>On Friday</h3>
     <p>
-      We will be having the rehearsal this evening.
-      After the reherseal, we plan on meeting at [some place] at [some time].
-      If you are arriving Friday, please feel free to join us at that time for light snacks and drinks.
-      This may also be a good time to check out <Link to={"/wedding/more-info"}>some nearby activities</Link> in the Rutland area.
+      If you are arriving Friday, we recommend you check out <Link to={"/wedding/more-info"}>some nearby activities</Link> in the Rutland area.
+      In addition, the bride, groom, and others will be meeting up at a local joint after the rehearsal dinner at around 9:00pm (location TBD).
+      Please feel free to join us!
     </p>
 
     <h3>On Saturday</h3>
