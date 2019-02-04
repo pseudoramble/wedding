@@ -8,7 +8,13 @@ export default () => (
   <React.Fragment>
     <h1>Lodging</h1>
 
-    <p>Looking for a hotel? There are three hotels we have rooms reserved at:</p>
+    <p>
+      The ceremony and reception are taking place at the <a target="_blank" href="https://goo.gl/maps/1ynWMCCAymy">Wallingford Lodge. 386 Boys Camp Rd Wallingford, VT 05773</a>.
+      This is about 10 minutes outside of Rutland, VT.
+    </p>
+    <p>
+      We have room blocks for three hotels in Rutland for you to stay at:
+    </p>
 
     <div className={ContentStyles.lodgingOptions}>
       <div>
@@ -80,7 +86,7 @@ export default () => (
     </div>
 
     <p>
-      There are <a target="_blank" href="https://www.airbnb.com/s/homes?refinement_paths%5B%5D=%2Fhomes&query=Wallingford%2C%20VT%2C%20United%20States&checkin=2019-05-10&checkout=2019-05-12&toddlers=0&allow_override%5B%5D=&s_tag=mc95cK2K">some Airbnb options available</a> in the Rutland/Wallingford area as well.
+      If you're looking for a house for the weekend, there are <a target="_blank" href="https://www.airbnb.com/s/homes?refinement_paths%5B%5D=%2Fhomes&query=Wallingford%2C%20VT%2C%20United%20States&checkin=2019-05-10&checkout=2019-05-12&toddlers=0&allow_override%5B%5D=&s_tag=mc95cK2K">some Airbnb options available</a> in the Rutland/Wallingford area as well.
     </p>
 
     <p>
