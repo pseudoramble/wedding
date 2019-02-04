@@ -18,7 +18,7 @@ export default () => (
 
     <div className={ContentStyles.lodgingOptions}>
       <div>
-        <div>Hampton Inn</div>
+        <strong>Hampton Inn</strong>
         <div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.0766520341817!2d-72.96992031886988!3d43.58411970505765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e024bf8a437d29%3A0x638a86e4932d051f!2s47+Farrell+Road%2C+Rutland%2C+VT+05701!5e0!3m2!1sen!2sus!4v1549127337547"
@@ -40,7 +40,7 @@ export default () => (
       </div>
 
       <div>
-        <div>Comfort Inn</div>
+        <strong>Comfort Inn</strong>
         <div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.0766520341817!2d-72.96992031886988!3d43.58411970505765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e024f3200d91ab%3A0x66b44bdc9cb5347a!2s19+Allen+St%2C+Rutland%2C+VT+05701!5e0!3m2!1sen!2sus!4v1549128053631"
@@ -63,7 +63,7 @@ export default () => (
       </div>
 
       <div>
-        <div>Days Inn</div>
+        <strong>Days Inn</strong>
         <div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1215.123939508836!2d-72.96769858454984!3d43.584298489261506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e0241a084d6889%3A0x2e9274b2051a8920!2sDays+Inn+by+Wyndham+Rutland%2FKillington+Area!5e0!3m2!1sen!2sus!4v1549128179128"
