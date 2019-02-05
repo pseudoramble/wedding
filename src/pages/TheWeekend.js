@@ -32,7 +32,7 @@ export default () => (
 
     <h3>On Saturday</h3>
     <p>
-      We first will have a brief ceremony <strong>starting at 4:00pm</strong>. 
+      We will first have a brief ceremony <strong>starting at 4:00pm</strong>. 
       The cocktail hour and reception will follow immediately at the same location.
     </p>
     <p>
