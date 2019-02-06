@@ -22,8 +22,8 @@ export const prompts = [
     id: 'attending',
     optional: false,
     responses: [
-      ["Yes, we excitedly accept!", true],
-      ["No, we regretfully decline.", false]
+      ["Yes, absolutely!", true],
+      ["No, regretfully.", false]
     ]
   },
   {
