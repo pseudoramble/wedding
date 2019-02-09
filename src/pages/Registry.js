@@ -9,7 +9,7 @@ export default () => (
     <h1>Registry</h1>
 
     <p>
-      First, we want to emphasis that a gift is <span style={{ fontStyle: "italic"}}>completely optional</span>. 
+      First, we want to emphasize that a gift is <span style={{ fontStyle: "italic"}}>completely optional</span>. 
       Your presence at our wedding is the best gift we could ask for,
       and we mean that in the least cliché way possible!
     </p>
