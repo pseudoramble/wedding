@@ -11,9 +11,13 @@ export default () => (
     <p>
       The ceremony and reception are taking place at the <a target="_blank" href="https://goo.gl/maps/1ynWMCCAymy">Wallingford Lodge. 386 Boys Camp Rd Wallingford, VT 05773</a>.
       This is about 10 minutes outside of Rutland, VT.
+      We have room blocks for three hotels in Rutland for you to stay at which are listed below.
     </p>
     <p>
-      We have room blocks for three hotels in Rutland for you to stay at:
+      <small>
+        <strong>If you are staying at a hotel, please try and book on or before April 9th 2019. </strong> 
+        The blocks will be opened up to the public again at this time and so we can't be sure there will be space.
+      </small>
     </p>
 
     <div className={ContentStyles.lodgingOptions}>
@@ -90,7 +94,8 @@ export default () => (
     </p>
 
     <p>
-      If these options are not working for you, reach out and we'll see what we can do.  
+      Feeling more adventurous? Want to get the <strong>true</strong> Vermont experience? Feel free to bring a tent and stay at the reception.
+      We have the lodge for the entire weekend and our guests are welcome to stay provided they are on their best behavior. If this intrigues you, but you have questions, reach out!
     </p>
   </React.Fragment>
 )
