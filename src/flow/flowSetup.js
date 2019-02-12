@@ -29,7 +29,7 @@ export const prompts = [
   {
     type: 'namecards',
     title: 'What names would you like on your name card(s)?',
-    subtitle: 'This isn\'t for the kids. That\'s why you do not see a spot for them!',
+    subtitle: 'For guests with kids - they are welcome! This section is just for the adults. That\'s why you don\'t see a spot for their names!',
     id: 'registeredNames'
   },
   {
