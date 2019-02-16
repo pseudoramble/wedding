@@ -11,9 +11,9 @@ const ChoicePrompt = ({ onBack, onResponse, title, subtitle, responses }) => (
     <div className={PromptStyles['choice-buttons']}>
       {
         responses.map(
-          ([label, value]) => 
+          ([label, value], i) => 
             <button
-              className={PromptStyles.promptButton}
+              className={`${PromptStyles.promptButton} choice-option-${i}-${value}`}
               onClick={() => onResponse(value)}
             >
               {label}
