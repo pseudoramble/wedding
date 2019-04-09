@@ -26,8 +26,7 @@ export default () => (
     <h3>On Friday</h3>
     <p>
       If you are arriving Friday, we recommend you check out <Link to={"/wedding/more-info"}>some nearby activities</Link> in the Rutland area.
-      In addition, the bride, groom, and others will be meeting up at a local joint after the rehearsal dinner at around 9:00pm (location TBD).
-      Please feel free to join us!
+      <strong>The bride and groom will be at the Hop'n Moose around 9:00pm</strong> for a beer. If you're in town and feeling up to it, please feel free to join us! 
     </p>
 
     <h3>On Saturday</h3>
