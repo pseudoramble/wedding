@@ -54,22 +54,10 @@ class NavMenuBar extends Component {
           <span><Link className={wrapperStyles.backLink} to="/"><img className={wrapperStyles.icon} src={buttonIcon} /></Link></span>
         </div>
         <nav className={classes}>
-          <HeaderLink onClick={this.toggleMenu} to="/wedding/our-story">
-            <i className="fa fa-book-open" style={iconStyles} />
-            <span style={{ paddingLeft: '10px' }}>
-              Our Story
-            </span>
-          </HeaderLink>
           <HeaderLink onClick={this.toggleMenu} to="/wedding/the-weekend">
             <i className="fa fa-map-marked-alt" style={iconStyles} />
             <span style={{ paddingLeft: '10px' }}>
               The Weekend
-            </span>
-          </HeaderLink>
-          <HeaderLink onClick={this.toggleMenu} to="/wedding/get-ready">
-            <i className="fa fa-calendar-alt" style={iconStyles} />
-            <span style={{ paddingLeft: '10px' }}>
-              RSVP!
             </span>
           </HeaderLink>
           <HeaderLink onClick={this.toggleMenu} to="/wedding/lodging">
@@ -88,6 +76,12 @@ class NavMenuBar extends Component {
             <i className="fa fa-walking" style={iconStyles} />
             <span style={{ paddingLeft: '10px' }}>
               Activities Nearby
+            </span>
+          </HeaderLink>
+          <HeaderLink onClick={this.toggleMenu} to="/wedding/our-story">
+            <i className="fa fa-book-open" style={iconStyles} />
+            <span style={{ paddingLeft: '10px' }}>
+              Our Story
             </span>
           </HeaderLink>
         </nav>

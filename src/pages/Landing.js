@@ -12,9 +12,9 @@ export default () => (
       <span>Kerry</span> <span className={landingStyles.amper}>&</span> <span>Doug</span>
     </div>
     <div className={landingStyles.enter}>
-      <Link className={landingStyles.link} to="/wedding/our-story">
+      <Link className={landingStyles.link} to="/wedding/the-weekend">
         <button className={landingStyles['enter-btn']}>
-          <span>Our Story</span>
+          <span>Get Ready!</span>
           <span className={landingStyles['enter-btn-icon']}>
             <img src={buttonIcon} />
           </span>
